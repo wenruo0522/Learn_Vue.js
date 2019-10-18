@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<mate charset="UTF-8">
+	<title>contribution of calculate</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		firstName: <input type="text" v-model="firstName">
+		lastName: <input type="text" v-model="lastName">
+		<div>{{fullName}}</div>
+		<div>{{count}}</div>
+	</div>
+	<script>
+		new Vue({
+			el: "#root",
+			data: {
+				firstName: '',
+				lastName: '',
+				count: 0
+			},
+			computed: {
+				fullName: function(){
+					return this.firstName + ' ' + this.lastName
+				}
+			},
+			watch: {
+				fullName: function() {
+					this.count ++
+				}
+			}
+		})
+	</script>
+</body>
+</html>

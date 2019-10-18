@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<mate charset="UTF-8">
+	<title>Introduction to Vue.js</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<h1 @click="handleClick">{{content}}</h1>
+	</div>
+	<script>
+		new Vue({
+			el: "#root",
+			data: {
+				content: "hello"
+			},
+			methods: {
+				handleClick: function(){
+					this.content = "world"
+				}
+			}
+		})
+	</script>
+</body>
+</html>

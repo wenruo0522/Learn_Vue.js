@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<mate charset="UTF-8">
+	<title>contribution bind</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<div :title="title">Hello World</div>
+		<input type="text" v-model="content">
+		<div>{{content}}</div>
+	</div>
+	<script>
+		new Vue({
+			el: "#root",
+			data: {
+				title: "this is hello world",
+				content: "this is content"
+			}
+		})
+
+	</script>
+</body>
+</html>
