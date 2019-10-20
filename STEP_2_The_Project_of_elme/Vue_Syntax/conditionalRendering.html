@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Conditional Rendering</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div v-if="show" data-test="v-if">{{message}}</div>
+		<div v-show="show" data-test="v-show">{{message}}</div>	
+		<div v-if="seen">
+			username:<input key="username">
+		</div>
+		<div v-else>
+			mailname:<input key="mailname">
+		</div>
+	</div>
+	<script>		
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				show: false,
+				message: "Hello World",
+				seen: false
+			},
+		});
+	</script>
+</body>
+</html>

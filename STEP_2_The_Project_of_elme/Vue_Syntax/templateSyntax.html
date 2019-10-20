@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Template Syntax</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div>{{content}}</div>
+		<div v-text="content"></div>
+		<div v-html="content"></div>
+		<div>{{name + ' Pauli'}}</div>
+		<div v-text="name + ' Pauli'"></div>
+		<div v-html="name + ' Pauli'"></div>
+	</div>
+
+	<script>		
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				content: "<h1>test</h1>",
+				name: "Wolf"
+			},
+			
+		})
+	</script>
+</body>
+</html>

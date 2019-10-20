@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>inline Style Binding</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<template v-for="(item, index) of list"
+			      :key="item.id">
+			<div>
+				{{item.text}} ---- {{index}}
+			</div>
+			<span>
+				{{item.text}}
+			</span>	
+		</template>
+		<div v-for="(item, key, index) of userInfo">
+			{{item}} --- {{key}} --- {{index}}
+		</div>
+	</div>
+	<script>		
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				list: [ {
+					id: "0101010231",
+					text: "hello"
+				},{
+					id: "0101010232",
+					text: "Wolf"
+				},{
+					id: "0101010233",
+					text: "Pauli"
+				}],
+				userInfo: {
+					name: "Pauli",
+					age: 28,
+					gender: "male",
+					salary: "15K"
+				}
+			}
+		});
+	</script>
+</body>
+</html>

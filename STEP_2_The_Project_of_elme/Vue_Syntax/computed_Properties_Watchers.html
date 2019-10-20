@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Template Syntax</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		{{fullName}} {{age}}
+	</div>
+	<script>		
+		var vm = new Vue({
+			el: "#app",
+			data: {
+				firstName: "Wolf",
+				lastName: "Pauli",
+				fullName: "Wolf Pauli",
+				age: 28
+			},
+			watch: {
+				firstName: function() {
+					console.log("Computed");
+					this.fullName = this.firstName + " " + this.lastName;
+				},
+				lastName: function() {
+					console.log("Computed");
+					this.fullName = this.firstName + " " + this.lastName;
+				},
+			}
+			// methods: {
+			// 	fullName: function() {
+			// 		console.log("Computed");
+			// 		return this.firstName + " " + this.lastName;
+			// 	}
+			// }
+
+			// computed: {
+			// 	fullName: function() {
+			// 		console.log("Computed")
+			// 		return this.firstName + " " + this.lastName;
+			// 	}
+			// }			
+		})
+	</script>
+</body>
+</html>
