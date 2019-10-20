@@ -5,4 +5,4 @@ STEP #1
 	The first course is "Introduction to Vue 2.5"
 
 STEP #2
-	continue
+	The second course is "The Project of elme." 
