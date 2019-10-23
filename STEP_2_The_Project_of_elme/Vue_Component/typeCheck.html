@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>type check and props validation</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<child content="hel"></child>	
+	</div>
+	<script>
+		
+		Vue.component('child', {
+			// props: {
+			// 	content: {
+			// 		type: String,
+			// 		// required: false,
+			// 		// default: 'default value'
+			// 		// validator: function(value) {
+			// 		// 	return ( value.length > 5)
+			// 		// }
+			// 	}
+			// },
+			template: '<div>{{content}}</div>',
+		})
+
+		var vm = new Vue({
+			el: "#root",
+			
+		});	
+	</script>
+</body>
+</html>

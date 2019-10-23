@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Bus model</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<child content="Wolf"></child>
+		<child content="Pauli"></child>	
+	</div>
+	<script>
+		
+		Vue.prototype.bus = new Vue()
+
+		Vue.component('child', {
+			props: {
+				content: String
+			},
+			data: function() {
+				return {
+					selfContent: this.content
+				}
+			},
+			template: '<div @click="handleClick">{{selfContent}}</div>',
+			methods: {
+				handleClick: function() {
+					this.bus.$emit('change', this.selfContent)
+				}		
+			},
+			mounted: function() {
+                var this_ = this
+				this.bus.$on('change', function(msg) {
+					this_.selfContent = msg
+				})
+			}
+		})
+
+		var vm = new Vue({
+			el: "#root",
+	
+		});	
+	</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>passValue in the Vue components</title>
+	<script src="./vue.js"></script>
+</head>
+<body>
+	<div id="root">
+		<counter :count="3" @change="handleChange"></counter>
+		<counter :count="2" @change="handleChange"></counter>
+		<div>{{total}}</div>	
+	</div>
+	<script>
+		
+		var counter = {
+			props: ['count'],
+			data: function() {
+				return {
+					number: this.count
+				}
+			},
+			template: '<div @click="handleClick">{{number}}</div>',
+			methods: {
+				handleClick: function() {
+					this.number = this.number + 2;
+					this.$emit('change', 2)
+				}
+			}
+		}
+
+		var vm = new Vue({
+			el: "#root",
+			components: {
+				counter: counter
+			},
+			data: {
+				total: 5
+			},
+			methods: {
+				handleChange: function(step) {
+					this.total += step;
+				}
+			}
+
+		});	
+	</script>
+</body>
+</html>
