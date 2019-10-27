@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Transition and Animation</title>
+	<script src="./vue.js"></script>
+	<link rel="stylesheet" type="text/css" href="./animate.css">
+<!-- 	<style>
+		@keyframes bounce-in {
+			0% {
+				transform: scale(0);
+			}
+			50% {
+				transform: scale(1.5);
+			}
+			100% {
+				transform: scale(1);
+			}
+		}
+
+		.fade-enter-active {
+			transform-origin: left center;
+			animation: bounce-in 1s;
+		}
+		.fade-leave-active {
+			transform-origin: left center;
+			animation: bounce-in 1s;
+		}
+	</style> -->
+</head>
+<body>
+	<div id="root">
+		<transition name="fade" enter-active-class="animated swing"
+		                        leave-active-class="animated shake">
+			<div v-if="show">hello world</div>
+		</transition>
+		<button @click="handleBtnClick">change</button>
+	</div>
+
+	<script>
+	var vm = new Vue({
+		el: '#root',
+		data: {
+			show: true,
+		},
+		methods: {
+			handleBtnClick: function() {
+				this.show = !this.show;
+			}
+		}
+	})
+		
+	</script>
+
+</body>
+</html>

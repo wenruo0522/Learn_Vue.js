@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Transition and Animation</title>
+	<script src="./vue.js"></script>
+	<link rel="stylesheet" type="text/css" href="./animate.css">
+	<style>
+		.fade-enter, 
+		.fade-leave-to{
+			opacity: 0;
+		}
+		.fade-enter-active,
+		.fade-leave-active {
+			transition: opacity 3s;
+		}
+	
+	</style>
+</head>
+<body>
+	<div id="root">
+		<transition name="fade" appear
+		:duration="{enter: 5000, leave: 5000}"
+		enter-active-class="animated swing fade-enter-active"
+		leave-active-class="animated shake fade-leave-active"
+		appear-active-class="animated swing">
+			<div v-if="show">hello world</div>
+		</transition>
+		<button @click="handleBtnClick">change</button>
+	</div>
+
+	<script>
+	var vm = new Vue({
+		el: '#root',
+		data: {
+			show: true,
+		},
+		methods: {
+			handleBtnClick: function() {
+				this.show = !this.show;
+			}
+		}
+	})
+		
+	</script>
+
+</body>
+</html>
